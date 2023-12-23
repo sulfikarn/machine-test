@@ -10,7 +10,7 @@ const countriesSlice =createSlice({
     name:'countries',
     initialState:{
         countries:[],
-        status:'idle',
+        status:'data',
         error:null,
     },
     reducers:{},
