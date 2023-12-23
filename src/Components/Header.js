@@ -3,7 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function Header({ onFilter }) {
+function Header({ onFilter, region }) {
+
+    console.log("region===", region)
     
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
@@ -15,9 +17,9 @@ function Header({ onFilter }) {
                 <Nav className='me-auto'></Nav >
                     
                     <Nav >
-                        <Nav.Link onClick={() => onFilter('all')} className='active-nav'>All</Nav.Link>
-                        <Nav.Link onClick={() => onFilter('Asia')}> Asia</Nav.Link>
-                        <Nav.Link onClick={() => onFilter('Europe')}>Europe</Nav.Link>
+                        <Nav.Link className={region==='all' ? 'active' : 'active-nav'} onClick={() => onFilter('all')} >All</Nav.Link>
+                        <Nav.Link className={region==='Asia' ? 'active' : 'active-nav'} onClick={() => onFilter('Asia')}> Asia</Nav.Link>
+                        <Nav.Link className={region==='Europe' ? 'active' : 'active-nav'} onClick={() => onFilter('Europe')}>Europe</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
