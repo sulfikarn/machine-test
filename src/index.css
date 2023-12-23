@@ -73,6 +73,36 @@ code {
   color: var(--txt-color);
 }
 
+.footer-title{
+  margin-bottom: 0.3rem;
+  font-size: 12px;
+  font-weight:600;
+  color: var(--txt-color);
+}
+
+.countries-name{
+  padding-left: 1.5rem;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--txt-color);
+}
+
+.countries-name span{
+  font-size: 13px;
+}
+
+.card{
+  border: 2px solid var(--txt-color);
+}
+
+.footer-wrap{
+  margin-top: 5rem;
+}
+
+.social-icons{
+  padding-right: 1rem;
+}
+
 .sign-text:before {
   right: 0.5em;
   margin-left: -50%;
