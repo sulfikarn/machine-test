@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;700&display=swap');
+:root {
+  --btn-color: #3C3C3C;
+  --txt-color: #3D3D3D; 
+}
+
+*{
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FBFBFB;
+  font-family: 'Noto Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Noto Sans', sans-serif;
+}
+.col{
+  flex: none;
+}
+
+.login-btn{
+  background-color: var(--btn-color) !important;
+  color:white !important;
+  font-size: 13px;
+}
+
+.error{
+  color: red;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.login-btn:hover{
+  background-color: var(--btn-color)  !important;
+}
+.login-btn:visited{
+  background-color: var(--btn-color)  !important;
+}
+
+.login-btn:active{
+  background-color: var(--btn-color) !important;
+}
+
+.sign-text{
+  margin-top: 2rem;
+  text-align: center;
+}
+.sign-text::before,
+.sign-text::after{
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 25%;
+}
+
+.title{
+  font-weight: 700;
+  color: var(--txt-color);
+}
+
+.sub-title{
+  padding-bottom: 2rem;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--txt-color);
+}
+
+.sign-text:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+.sign-text:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
