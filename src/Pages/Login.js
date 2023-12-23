@@ -2,8 +2,9 @@ import React from 'react'
 import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { loginUser, loginFailure  } from '../Store/authSlice'
+import { toast } from 'react-toastify';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -19,6 +20,7 @@ function Login() {
     const {
         register,
         formState: { errors },
+        reset,
         handleSubmit,
     } = useForm()
 
@@ -28,14 +30,17 @@ function Login() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate();
-    const errorMessage = useSelector((state) => state.auth.errorMessage);
     
     const onSubmit = (data) => {
         if (data.email === UserEmail && data.password === UserPassword) {
             dispatch(loginUser(fakeToken));
+            reset()
             navigate('/home');
+            toast.success('Login Successful')
         } else {
-            dispatch(loginFailure('Invalid email or password'));
+            toast.error('Invalid email or password')
+            dispatch(loginFailure());
+            reset()
         }
     }
     return (
@@ -43,12 +48,11 @@ function Login() {
             <Container className='min-vh-100'>
                 <Row className='d-flex justify-content-center align-items-center '>
                     <Col className='col-sm-12 col-md-12 align-items-md-center align-items-lg-stretch  col-lg-3  min-vh-100 d-flex flex-column justify-content-center '>
-                    {errorMessage && <p className='error'>Invalid email or password</p> }
                         <h4 className='text-lg-start text-center font-weight-bold title'>Sign In</h4>
                         <p className='text-lg-start text-center font-weight-bold sub-title'>New user? <Link>Create an account</Link></p>
                         <Form onSubmit={handleSubmit(onSubmit)}>
                             <Form.Control
-                                className='mb-3'
+                                className='mb-3 '
                                 type="email"
                                 placeholder='User Name'
                                 {...register("email", { required: true })}
