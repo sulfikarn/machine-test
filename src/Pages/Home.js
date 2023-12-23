@@ -39,7 +39,7 @@ function Home() {
         <>
             <Container>
                 <Row>
-                    <Header onFilter={handleFilter} />
+                    <Header region={filter} onFilter={handleFilter} />
 
                     {filteredCountries.map((country) => (
                         <Col md={6}>
