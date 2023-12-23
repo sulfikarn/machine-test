@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify';
 import { fetchCountries } from '../Store/countriesSlice';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import Loader from '../Components/Loader';
 
 
 function Home() {
@@ -28,17 +30,19 @@ function Home() {
         }
     }, [dispatch, status])
 
-    if (status === 'loading') {
-        return <div>Loading...</div>;
-    }
+   
 
     if (status === 'failed') {
-        return <div>Error: {error}</div>;
+        // return <div>Error: {error}</div>;
+        toast(error)
     }
     return (
         <>
+        {status === 'loading' && <Loader/>}
             <Container>
                 <Row>
+
+                    
                     <Header region={filter} onFilter={handleFilter} />
 
                     {filteredCountries.map((country) => (

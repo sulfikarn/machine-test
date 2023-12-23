@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
 :root {
   --btn-color: #3C3C3C;
   --txt-color: #3D3D3D; 
@@ -26,7 +27,8 @@ code {
 .login-btn{
   background-color: var(--btn-color) !important;
   color:white !important;
-  font-size: 13px;
+  font-size: 1rem;
+  padding: 0.5rem 0;
 }
 
 .error{
@@ -69,7 +71,7 @@ code {
 .sub-title{
   padding-bottom: 2rem;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--txt-color);
 }
 
@@ -119,6 +121,39 @@ code {
   padding-right: 1rem;
 }
 
+
+.spinnerContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 99999999999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255,255,255,0.7);
+  animation: spinner-animation 0.2s ease-in-out;
+}
+
+.plSpinner {
+  color: var(--btn-color);
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  border: 0.25em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border .75s linear infinite;
+}
+
+.form-control{
+  font-weight: 400;
+  font-size: 1rem;
+}
+
 .sign-text:before {
   right: 0.5em;
   margin-left: -50%;
@@ -128,3 +163,15 @@ code {
   margin-right: -50%;
 }
 
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinner-animation {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}

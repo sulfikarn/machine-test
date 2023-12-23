@@ -14,14 +14,19 @@ const authSlice = createSlice({
         },
         loginFailure: (state, action) => {
             state.isAuthenticated = false;
-            state.errorMessage = action.payload;
+            state.errorMessage = 'Invalid email or password';
             localStorage.removeItem('token');
         },
+        logoutSuccess: (state) => {
+            state.isAuthenticated = false;
+            state.errorMessage = null;
+            localStorage.removeItem('token');
+          },
     }
 })
 
 
-export const { loginUser, loginFailure } = authSlice.actions;
+export const { loginUser, loginFailure, logoutSuccess } = authSlice.actions;
 export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
 export const selectToken = (state) => state.auth.token;
 
